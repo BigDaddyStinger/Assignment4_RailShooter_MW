@@ -1,0 +1,64 @@
+using UnityEngine;
+
+public class ShootScript : MonoBehaviour
+{
+    Zombie_Input zombieInput;
+
+    public float fireRange = 500f;
+
+
+    private void Awake()
+    {
+        zombieInput = new Zombie_Input();
+    }
+
+    private void OnEnable()
+    {
+        zombieInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        zombieInput.Disable();
+    }
+
+    void Update()
+    {
+        if (zombieInput.Player.Shoot.triggered)
+        {
+            FireWeapon();
+        }
+    }
+
+    void FireWeapon()
+    {
+        SoundManager.Instance.PlaySound2D("pistolShotClip");
+
+        RaycastHit hit;
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if(Physics.Raycast(ray, out hit, fireRange))
+        {
+            //Debug.Log("You Just Shot " + hit.transform.name);
+
+            //Destroy(hit.transform.gameObject);
+
+            if (hit.transform.gameObject.tag == "HeadShot")
+            {
+                bool _head = true;
+                GameObject _zombie = hit.transform.gameObject;
+                ZombieHealthScript _health = _zombie.GetComponentInParent<ZombieHealthScript>();
+                _health.TakeDamage(_head);
+            }
+
+            if (hit.transform.gameObject.tag == "BodyShot")
+            {
+                bool _head = false;
+                GameObject _zombie = hit.transform.gameObject;
+                ZombieHealthScript _health = _zombie.GetComponentInParent<ZombieHealthScript>();
+                _health.TakeDamage(_head);
+            }
+        }
+    }
+}

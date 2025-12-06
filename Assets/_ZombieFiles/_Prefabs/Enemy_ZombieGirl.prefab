@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 43e766d5979affe44b9177a553bf3d91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.29
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 43e766d5979affe44b9177a553bf3d91, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 43e766d5979affe44b9177a553bf3d91, type: 3}
       propertyPath: m_LocalRotation.w
@@ -69,6 +69,9 @@ PrefabInstance:
       addedObject: {fileID: 6061752889715949328}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 43e766d5979affe44b9177a553bf3d91, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 4213736109491614654}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 43e766d5979affe44b9177a553bf3d91, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1660691123992289430}
     - targetCorrespondingSourceObject: {fileID: -3542885339558904099, guid: 43e766d5979affe44b9177a553bf3d91, type: 3}
       insertIndex: -1
@@ -110,6 +113,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4213736109491614654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4545900488021743273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add634c8c150f9e42943842ef3579c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _state: 0
+  zHealth: {fileID: 0}
+  _anim: {fileID: 0}
+  stopPoint: {fileID: 0}
+  moveSpeed: 1
+  attackDistance: 0.25
+  attackTimer: 2
+  inAction: 0
+  isHurt: 0
+  isMoving: 0
+  isDead: 0
 --- !u!114 &1660691123992289430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombieHealth: 3
+  deleteTime: 3
 --- !u!1 &6093502397727762588 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1781356600409242780, guid: 43e766d5979affe44b9177a553bf3d91, type: 3}

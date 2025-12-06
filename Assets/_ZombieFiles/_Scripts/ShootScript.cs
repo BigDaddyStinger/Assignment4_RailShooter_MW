@@ -59,6 +59,24 @@ public class ShootScript : MonoBehaviour
                 ZombieHealthScript _health = _zombie.GetComponentInParent<ZombieHealthScript>();
                 _health.TakeDamage(_head);
             }
+            
+            if (hit.transform.gameObject.tag == "Shotgun")
+            {
+                GameManager.Instance.shellCount = 10;
+                Destroy(hit.transform.gameObject);
+            }
+
+            if (hit.transform.gameObject.tag == "Health")
+            {
+                GameManager.Instance.playerHealth++;
+                Destroy(hit.transform.gameObject);
+            }
+
+            if(hit.transform.gameObject.tag == "Target")
+            {
+                Debug.Log("Target Hit!");
+                Destroy(hit.transform.gameObject);
+            }
         }
     }
 }

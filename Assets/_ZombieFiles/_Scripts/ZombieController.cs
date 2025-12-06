@@ -83,17 +83,11 @@ public class ZombieController : MonoBehaviour
                 inAction = true;
 
                 StartCoroutine(AttackPlayer());
-
             }
 
         }
-
-            //===== ANIMATIONS =====
-
-            _anim.SetBool("Active", isMoving);
-
-        
-
+        //===== ANIMATIONS =====
+        _anim.SetBool("Active", isMoving);
     }
 
     IEnumerator AttackPlayer()
@@ -103,11 +97,10 @@ public class ZombieController : MonoBehaviour
             if (!isHurt)
             {
                 _anim.SetTrigger("Attack");
-                AttackTrigger();
+                //AttackTrigger();
             }
 
             yield return new WaitForSeconds(attackTimer);
-
         }
     }
 

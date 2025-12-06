@@ -6,6 +6,11 @@ TagManager:
   tags:
   - HeadShot
   - BodyShot
+  - Shotgun
+  - Health
+  - WeakPoint
+  - Point
+  - Target
   layers:
   - Default
   - TransparentFX

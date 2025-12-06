@@ -3,11 +3,17 @@ using UnityEngine;
 
 public class ZombieHealthScript: MonoBehaviour
 {
+    public PathFollowScript _follow;
     public int zombieHealth = 3;
 
     public float deleteTime = 3f;
 
     Animator _anim;
+
+    private void Awake()
+    {
+        _follow = GameObject.FindFirstObjectByType<PathFollowScript>();
+    }
 
     private void Start()
     {
@@ -41,8 +47,12 @@ public class ZombieHealthScript: MonoBehaviour
 
     IEnumerator ZombieDead()
     {
+        ZombieController controller = GetComponent<ZombieController>();
+        controller.isDead = true;
         _anim.SetTrigger("Dead1");
         yield return new WaitForSeconds(deleteTime);
+        _follow.SubtractEnemy();
         Destroy(gameObject);
+        
     }
 }

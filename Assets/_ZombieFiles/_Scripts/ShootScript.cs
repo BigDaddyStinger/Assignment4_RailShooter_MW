@@ -28,6 +28,11 @@ public class ShootScript : MonoBehaviour
         {
             FireWeapon();
         }
+
+        if (zombieInput.Player.Quit.triggered)
+        {
+            Application.Quit();
+        }
     }
 
     void FireWeapon()
@@ -75,7 +80,25 @@ public class ShootScript : MonoBehaviour
             if(hit.transform.gameObject.tag == "Target")
             {
                 Debug.Log("Target Hit!");
+                BossController ctrl = GameObject.FindFirstObjectByType<BossController>();
+                ctrl.StunBoss();
                 Destroy(hit.transform.gameObject);
+            }
+
+            if (hit.transform.gameObject.tag == "WeakPoint")
+            {
+                Debug.Log("Boss Weak Point Hit!");
+                GameManager.Instance.bossHealth -= 2;
+
+                if(GameManager.Instance.bossHealth <= 0f)
+                {
+                    BossController ctrl = GameObject.FindFirstObjectByType<BossController>();
+                    if (!ctrl.isDead)
+                    {
+                        ctrl.BossDeath();
+
+                    }
+                }
             }
         }
     }

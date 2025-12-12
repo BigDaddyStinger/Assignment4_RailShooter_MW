@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public Image hurtDisplay;
 
     public GameObject gameOverPanel;
+    public GameObject levelCompletePanel;
 
     public float hurtDisplayAlpha = 0f;
     public float hurtDisplayTimer = 0.5f;
@@ -34,6 +35,11 @@ public class GameManager : MonoBehaviour
     public int bulletCount;
     public TMP_Text shellCountText;
     public TMP_Text bulletCountText;
+
+
+    [Header("Boss Health Meter")]
+    public float bossHealth = 100f;
+    public Image bossHealthMeter;
 
 
     private void Awake()
@@ -90,6 +96,10 @@ public class GameManager : MonoBehaviour
                 playerHealth = numberOfHearts;
             }
         }
+
+        // Display Boss Health
+
+        bossHealthMeter.fillAmount = bossHealth / 100f;
     }
 
     public void HurtPlayer()
@@ -132,4 +142,11 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene(0);
     }
+
+    public void LevelComplete()
+    {
+        Time.timeScale = 0f;
+        levelCompletePanel.SetActive(true);
+    }
+
 }

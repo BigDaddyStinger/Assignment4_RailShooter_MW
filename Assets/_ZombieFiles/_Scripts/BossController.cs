@@ -68,6 +68,18 @@ public class BossController : MonoBehaviour
         }
     }
 
+    public void StunBoss()
+    {
+        _anim.SetTrigger("Stun");
+
+        numberOfTargets--;
+
+        if(numberOfTargets <= 0)
+        {
+            ResetBoss();
+        }
+    }
+
     public void HurtPlayer()
     {
         GameManager.Instance.HurtPlayer();
@@ -78,5 +90,13 @@ public class BossController : MonoBehaviour
         isAttacking = false;
         inAction = false;
         walkingForward = false;
+    }
+
+    public void BossDeath()
+    {
+        Debug.Log("Boss Dead");
+        isDead = true;
+        _anim.SetTrigger("Death");
+        Invoke("GameManager.Instance.LevelComplete", 5f);
     }
 }

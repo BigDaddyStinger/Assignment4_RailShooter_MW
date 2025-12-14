@@ -98,8 +98,10 @@ public class GameManager : MonoBehaviour
         }
 
         // Display Boss Health
-
-        bossHealthMeter.fillAmount = bossHealth / 100f;
+        if (levelCompletePanel != null)
+        {
+            bossHealthMeter.fillAmount = bossHealth / 100f;
+        }
     }
 
     public void HurtPlayer()

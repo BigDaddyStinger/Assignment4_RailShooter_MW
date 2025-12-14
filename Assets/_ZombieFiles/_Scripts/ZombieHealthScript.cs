@@ -10,8 +10,6 @@ public class ZombieHealthScript: MonoBehaviour
 
     Animator _anim;
 
-    ZombieController zCTRL;
-
     private void Awake()
     {
         _follow = GameObject.FindFirstObjectByType<PathFollowScript>();
@@ -20,14 +18,13 @@ public class ZombieHealthScript: MonoBehaviour
     private void Start()
     {
         _anim = GetComponent<Animator>();
-        zCTRL = GetComponent<ZombieController>();
     }
 
     public void TakeDamage(bool _head)
     {
         zombieHealth--;
 
-        if (zombieHealth > 0 && !zCTRL.isDead)
+        if (zombieHealth > 0)
         {
             if (_head)
             {
@@ -42,19 +39,15 @@ public class ZombieHealthScript: MonoBehaviour
         {
             StartCoroutine(ZombieDead());
         }
-
-
-
-
     }
 
     IEnumerator ZombieDead()
     {
-        zCTRL.isDead = true;
+        ZombieController controller = GetComponent<ZombieController>();
+        controller.isDead = true;
         _anim.SetTrigger("Dead1");
         yield return new WaitForSeconds(deleteTime);
         _follow.SubtractEnemy();
         Destroy(gameObject);
-        
     }
 }

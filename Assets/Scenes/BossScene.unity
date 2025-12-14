@@ -230,6 +230,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: WeakPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 1082271958561512970, guid: 66ccbb93dc5c33949a75d979df8907bb, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -3194,7 +3198,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 1776250441}
   levelCompletePanel: {fileID: 1572059198}
   hurtDisplayAlpha: 0
-  hurtDisplayTimer: 0.1
+  hurtDisplayTimer: 0.5
   numberOfHearts: 5
   _hearts:
   - {fileID: 1404283436}

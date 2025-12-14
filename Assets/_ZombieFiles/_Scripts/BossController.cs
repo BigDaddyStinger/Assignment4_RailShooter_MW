@@ -97,6 +97,7 @@ public class BossController : MonoBehaviour
         Debug.Log("Boss Dead");
         isDead = true;
         _anim.SetTrigger("Death");
-        Invoke("GameManager.Instance.LevelComplete", 5f);
+        //Invoke("GameManager.Instance.LevelComplete", 5f);
+        GameManager.Instance.Invoke("LevelComplete", 5f);
     }
 }

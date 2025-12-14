@@ -67,7 +67,7 @@ public class ShootScript : MonoBehaviour
             
             if (hit.transform.gameObject.tag == "Shotgun")
             {
-                GameManager.Instance.shellCount = 10;
+                GameManager.Instance.shellCount += 10;
                 Destroy(hit.transform.gameObject);
             }
 
@@ -88,7 +88,7 @@ public class ShootScript : MonoBehaviour
             if (hit.transform.gameObject.tag == "WeakPoint")
             {
                 Debug.Log("Boss Weak Point Hit!");
-                GameManager.Instance.bossHealth -= 2;
+                GameManager.Instance.bossHealth -= 1;
 
                 if(GameManager.Instance.bossHealth <= 0f)
                 {

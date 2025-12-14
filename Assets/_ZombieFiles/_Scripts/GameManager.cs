@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
 
         hurtDisplay.color = _hurt;
 
-        if (hurtDisplayAlpha > 0f)
+        if (hurtDisplayAlpha > 0)
         {
             hurtDisplayAlpha -= Time.deltaTime;
         }
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
 
         hurtFlash.SetActive(true);
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
 
         hurtFlash.SetActive(false);
     }
